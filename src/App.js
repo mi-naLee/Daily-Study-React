@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+/*
+    @date : 03JUL23
+    @content : '벨로퍼트와 함께하는 모던 리액트'
+    @order : 2
+*/
+import React from "react";
+import Hello from "./Hello";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Hello />
+      <Hello />
+      {/* Component 재사용 가능 */}
     </div>
   );
 }
