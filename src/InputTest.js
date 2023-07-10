@@ -6,21 +6,34 @@
 import React, { useState } from "react";
 
 function InputTest(){
-    const [text, setText] = useState('');
+    const [user, setUser] = useState({
+        name : '',
+        nick : ''
+    });
+
+    const { name, nick } = user;
 
     const handleInput = (e) =>{
-        setText(e.target.value);
+        const { name, value } = e.target;
+        setUser({
+            ...user,
+            [name] : value,
+        })
     }
 
     const resetBtn = () =>{
-        setText('')
+        setUser({
+            name : '',
+            nick : '',
+        })
     }
 
     return (
         <div>
-            <input onChange={handleInput} value={text}/> 
+            <input name="name" onChange={handleInput} value={name} placeholder="이름"/> 
+            <input name="nick" onChange={handleInput} value={nick} placeholder="닉네임"/> 
             <button onClick={resetBtn}>초기화</button>
-            <p>{text}</p>
+            <p>{name}({nick})</p>
         </div>
     ); 
 }
