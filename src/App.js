@@ -4,15 +4,11 @@
     @order : 2
 */
 import React from "react";
-import Hello from "./Hello";
+import InputTest from "./InputTest";
 
 function App() {
   return (
-    <div>
-      <Hello />
-      <Hello />
-      {/* Component 재사용 가능 */}
-    </div>
+    <InputTest />
   );
 }
 
