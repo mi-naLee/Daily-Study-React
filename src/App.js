@@ -4,11 +4,11 @@
     @order : 2
 */
 import React from "react";
-import InputTest from "./InputTest";
+import Arrays from "./Week1/Arrays";
 
 function App() {
   return (
-    <InputTest />
+    <Arrays />
   );
 }
 
