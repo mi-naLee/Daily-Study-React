@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import ArrAdd from "../Week1/ArrAdd";
 import ArrAddList from "../Week1/ArrAddList";
 
@@ -6,7 +6,7 @@ function ArrAddRun(){
     const [memberList, setMemberList] = useState([]);
     const [inputs, setInputs] = useState({
         nick: '',
-        drink: ''
+        drink: '',
     })
     const { nick, drink } = inputs;
 
@@ -23,25 +23,39 @@ function ArrAddRun(){
         const member = {
             id: nextId.current,
             nick,
-            drink
+            drink,
+            active: false
         }
-        console.log(member);
         // setMemberList([...memberList, member]);
         setMemberList(memberList.concat(member));
-        console.log(memberList)
 
         setInputs({
             nick: '',
-            drink: ''
+            drink: '',
         })
         nextId.current += 1;
     }
 
+    const onRemove = id => {
+        setMemberList(memberList.filter(member => member.id !== id));
+    }
+
+    const onToggle = id => {
+        console.log("toggle........")
+        setMemberList(memberList.map(member => member.id === id ? {...member, active: !member.active } : member))
+    }
+
+    const CountActiveUsers = memberList => {
+        return memberList.filter(member => member.active).length;
+    }
+
+    const count = useMemo(()=> CountActiveUsers(memberList),[memberList]);
     return (
         <>
             <h1>음료</h1>
             <ArrAdd nick={nick} drink={drink} onChange={onChange} onCreate={onCreate} />
-            <ArrAddList memberList={memberList} />
+            <ArrAddList memberList={memberList} onRemove={onRemove} onToggle={onToggle}/>
+            <p>선택된 사람들 : {count}</p>
         </>
     );
 }
