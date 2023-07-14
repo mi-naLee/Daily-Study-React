@@ -1,5 +1,6 @@
 import React from "react";
 
+// CreateUser
 function ArrAdd({nick, drink, onChange, onCreate}){
     return (
         <div>
@@ -10,4 +11,4 @@ function ArrAdd({nick, drink, onChange, onCreate}){
     );
 }
 
-export default ArrAdd;
+export default React.memo(ArrAdd);

@@ -1,6 +1,8 @@
 import React from "react";
 
-function AddList({member, onRemove, onToggle}){
+// User
+const AddList = React.memo(function AddList({member, onRemove, onToggle}){
+    console.log("user---------")
     return (
         <div>
             <b style={{cursor: 'pointer', color: member.active ? 'red' : 'black'}}
@@ -10,8 +12,9 @@ function AddList({member, onRemove, onToggle}){
             <button onClick={() => onRemove(member.id)}>삭제</button>
         </div>
     );
-}
+});
 
+// UserList
 function ArrAddList({memberList, onRemove, onToggle}){
     return (
         // .map(val => ()) : 괄호 형태 주의하기
@@ -23,4 +26,4 @@ function ArrAddList({memberList, onRemove, onToggle}){
     );
 }
 
-export default ArrAddList;
+export default React.memo(ArrAddList);

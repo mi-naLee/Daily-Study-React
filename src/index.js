@@ -10,8 +10,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // id == 'root'인 DOM은 public/index.html에 있다.
 root.render(
   <React.StrictMode>
-    {/*<App />*/}
-    <ArrAddRun />
+    <App />
+    {/*<ArrAddRun />*/}
   </React.StrictMode>
 );
 
